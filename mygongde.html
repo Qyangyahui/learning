@@ -1,134 +1,50 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-		    <title>上香</title>
-        <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.0.2/css/bootstrap.min.css">
-        <style> 
-            *{
-                padding:0;
-                margin:0;
-                box-sizing: border-box;
-            }
-            html,body{
-                width:100%;
-                height:100%;
-            }
-            body{
-            
-            
-            }
-            main{
-               
-                height:15%;
-                background-color:#ffffff;
-                width:100%;
-                /*padding:3%;*/
-            }
-            
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>上香</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mygongde.css">
+</head>
 
-             .left{
-                width:70%;
-                padding:2% 3%;
-                /*background-color: gold;*/
-                float:left;
-            }
-            .left>img{
-               float:left;
-               /*margin:50px;*/
-               height:80px;
-               width:80px;
-               border-radius:50%;
-            }
-            .left>p{
-               float:left;
-               padding:10px 0 0 10px;
-               margin-left:5%;
-               font-size: 16px;
-            }
-            .right{
-                width:30%;
-                float:right;
-                height:100%;
-                /*background-color: green;*/
-                padding:5px 0 0 5px;
-
-            }
-            .right>button{
-                width:90%;
-                height:35%;
-                margin-top:20%;
-                border:none;
-                background-color:#ff5500; 
-                color:#ffffff;
-                font-size: 16px;
-                /*border:none;*/
-            }
-
-            footer{
-                border-top:solid 10px #f3f3f3;
-            }
-            #mynav{
-               padding:3% 5%;
-               background-color:#ffffff;
-               margin-top:3%;
-               font-size:18px;
-            }
-            li{
-               background-color:#ffffff;
-               border-top:solid 1px #f3f3f3;
-               height:80px;
-               list-style-type:none;
-            }
-            #myname{
-               float:left;
-               padding:10px 20px;
-            }
-            #gongde{
-              float:right;
-              padding:10px 20px;
-            }
-
-        </style>
-	</head>
-	<body>
-          <main >     
-             <div class="left"> </div>
-             <div style="myfloat"></div>
-             <div class="right">
-                 <button>兑 换 功 德</button>
-             </div>
-             <div style="myfloat"></div>
-          </main> 
-          <footer>
-            <div id="mynav">功德榜</div>
-            <div>
-              <ul>
+<body>
+    <main>
+        <div class="left"> </div>
+        <div style="myfloat"></div>
+        <div class="right">
+            <button>兑 换 功 德</button>
+        </div>
+        <div style="myfloat"></div>
+    </main>
+    <footer>
+        <div id="mynav">功德榜</div>
+        <div>
+            <ul>
                 <li>
-                  <div id="myname"></div>
-                  <div id="gongde"></div>
-                  <div style="clear:both;"></div>
+                    <div id="myname"></div>
+                    <div id="gongde"></div>
+                    <div style="clear:both;"></div>
                 </li>
-              </ul>
-            </div>
-          </footer>
-	</body>
-	 
+            </ul>
+        </div>
+    </footer>
+</body>
+
 </html>
 <script src="librarys/JQuery.js"></script>
 <script>
   $(document).ready(function(){
     var html = '';
-    html = '<img src="img/bg2.png" alt="">' + ' <p style="font-weight:bold;">十里桃花</p><br/>' + '<p style="color:#a5a5a5;">功德总数:40</p>';
+    html = '<img src="img/bg2.png" alt="头像">' + ' <p style="font-weight:bold;">十里桃花</p><br/>' + '<p style="color:#a5a5a5;">功德总数:40</p>';
     $(".left").append(html);
     var head = '';
-    head = ' <p  style="font-size:16px;font-weight:bold;padding:5px 0;margin:0;">十里桃花呢</p>' + '  <p  style="font-size:14px;padding:3px 0;color:#a5a5a5;margin:0;">2017-03-10 10:23</p>';
+    head = ' <p  class="mynicheng">十里桃花呢</p>' + '  <p  class="mytime">2017-03-10 10:23</p>';
     $("#myname").append(head);
     var gongde = '';
-    gongde = '<p style="font-size:16px;font-weight:bold;padding:5px 0;margin:0;">送花</p>' + '<p style="font-size:14px;padding:3px 0;color:#ff5500;font-weight:bold;margin:0;">+10</p>';
+    gongde = '<p  class="mynicheng">送花</p>' + '<p  class="mytime" id="myjifen">+10</p>';
     $("#gongde").append(gongde);
 });
 </script>
