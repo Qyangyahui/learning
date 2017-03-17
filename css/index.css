@@ -47,3 +47,93 @@
                display:none;
                /*z-index: 99;*/
              }
+
+                ul,li{ margin:0;
+             list-style-type:none; 
+             padding:0;
+             }
+             
+            ul{
+                position:absolute; 
+                top:30%;
+                /*left:30%;*/
+                width:100%;
+                text-align: center;
+            }
+            li{
+                border-radius: 5px;
+                /*background-color: red;*/
+                width:100%;
+                margin-top:8%;
+
+            }
+            
+            a{ text-decoration:none; 
+              /*color:blue;*/
+              color:#705134;
+              font-size:18px; 
+              /*background-color:rgba(230,33,41,0.5);*/
+              background-color:rgba(225,211,167,0.8);
+              padding:5px 50px;
+              /*padding-top:5px;
+              padding-bottom:8px;
+              line-height:300%;*/
+              /*padding-right:60px;*/
+              /*background-position:90%; */
+              /*background-size:15px 20px; */
+              /*border-top-right-radius: 5px;
+              border-bottom-right-radius: 5px;*/
+               border-radius: 5px;
+               width:30%;
+               font-weight: bold;
+            }
+            
+            li:nth-child(2) a{ 
+                /*padding-right:60px;*/
+                animation-delay:0.5s; 
+            }
+            li:nth-child(3) a{
+                /*padding-right:90px;*/
+                animation-delay:1s;
+            }
+            li:nth-child(4) a{
+                /*padding-right:120px;*/
+                animation-delay:1.5s;
+            }
+            li:nth-child(5) a{
+                /*padding-right:150px;*/
+                animation-delay:2s;
+            }
+            
+            li:nth-child(2){
+                animation-delay:0.5s;
+            }
+            li:nth-child(3){
+                animation-delay:1s;
+            }
+            li:nth-child(4){
+                animation-delay:1.5s;
+            }
+            li:nth-child(5){
+                animation-delay:2s;
+            }
+            
+            .fadeIn{ animation-name:fadeIn;
+                   animation-fill-mode:both; 
+                   animation-duration:3s; 
+                }
+            
+            @keyframes fadeIn{
+                from{ opacity:0; } 
+                to{ opacity:1;}
+            }
+            
+            .slideLeft{
+                animation-name:slideLeft;
+                animation-duration:3s;
+            }
+            
+            @keyframes slideLeft{
+                from{ transform:translate(-200px,0);}
+                to{ transform:translate(0,0);}
+            }

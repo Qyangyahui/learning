@@ -32,11 +32,11 @@
   <div>
     <div id="myrecord">我的助力记录</div>
     <ul id="list">
-      <li>
+      <!--<li>
         <img src="img/bg2.png" alt="头像">
         <span id="mynicheng">我的昵称</span>
         <span id="mytime">这里是时间</span>
-      </li>
+      </li>-->
     </ul>
   </div>
 </body>
@@ -50,32 +50,33 @@
       $("#boxbg").css("display","block");
    });
    $("#myxy").click(function(){
-     location.href="myxinyuan.html"
-   })
+     location.href=""
+   });
     $("#myclose").click(function(){
       $("#boxbg").css("display","none");
-   })
+   });
+
+    $.ajax({
+            type: "GET",
+            cache: false,
+            url: "http://test.huaifuwang.com/snsjs/index.php?s=/home/snsapi/isPerform&&type=1",
+            dataType: "jsonp",
+            jsonp: "callback",
+            jsonpCallback: "success_jsonpCallback",
+            success: function(json){
+                 console.log(json);}
+        });
+
+  //       function OnGetMemberSuccessByjsonp() {
+  //   //处理data
+  //   alert("hahha");
+  // }
+
+    // $.getJSON("http://test.huaifuwang.com/snsjs/index.php?s=/home/snsapi/isPerform/type/1",function(data){
+    //         console.log(data);
+    //         alert('hahah');
+    //  });
 
 });
 
-$.ajax({
-        url:'/http://182.92.70.85/hfshopapi/Public/Found/',
-        type:'POST',
-        async:true,
-        dataType:'json',
-        success:function(msg){
-            console.log(msg);
-            alert('hahha')
-
-        },
-        error:function(){
-            alert('出错了');
-             var html = '';
-    for(var i=0;i<10;i++){
-        html += '<li>' + '<img src="img/bg2.png" alt="头像">' + '<span id="mynicheng">我的昵称</span>' + ' <span id="mytime">这里是时间</span>';
-    }
-
-    $('#list').append(html);
-        }
-    })
 </script>
