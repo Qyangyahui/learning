@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>上香</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        
+        ul {
+            width: 100%;
+            height: 100%;
+        }
+        
+        ul li {
+            list-style-type: none;
+            height: 110px;
+            border-bottom: solid 2px #e4e4e6;
+            font-size: 16px;
+            padding: 7% 5%;
+            width: 100%;
+            background-color: #ffffff;
+        }
+        
+        .name {
+            float: left;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .amount {
+            float: right;
+            color: orange;
+            font-size: 18px;
+            padding-top: 3%;
+        }
+        
+        .time {
+            padding-top: 5%;
+            color: #959595;
+        }
+    </style>
+</head>
+
+<body>
+    <ul></ul>
+</body>
+
+</html>
+<script src="librarys/JQuery.js"></script>
+<script>
+  $(document).ready(function(){
+    
+    // $.ajax({
+    //     url:'/http://182.92.70.85/hfshopapi/Public/Found/',
+    //     type:'POST',
+    //     async:true,
+    //     dataType:'json',
+    //     success:function(msg){
+    //         console.log(msg);
+    //         alert('hahha')
+
+    //     },
+    //     error:function(){
+    //         alert('出错了');
+    //          var html = '';
+    // for(var i=0;i<10;i++){
+    //     html += '<li>' + '<span class="name">张大大</span>' + '<span class="amount">+10</span>' + '<br/>'+'<p class="time">2017-06-07 16:08</p>';
+    // }
+
+    // $('ul').append(html);
+    //     }
+    // })
+
+       $.getJSON("http://182.92.70.85/hfshopapi/Public/Found/?service=Shopt.getValueList&&shopid=1", function(data) {
+           
+          console.log(data);
+          console.log(data.data.info[0].truename);
+          alert('hahh');
+          //时间转化
+          var unixTimestamp = new Date(data.data.info[0].value*1000 ) ;
+          commonTime = unixTimestamp.toLocaleString();
+          alert(commonTime);
+          var html = '';
+          for(var i=0;i<10;i++){
+          html += '<li>' + "<span class='name'>" + data.data.info[0].truename +"</span>" + '<span class="amount">'+ data.data.info[0].value +'</span>' + '<br/>'+'<p class="time">'+ commonTime +'</p>';
+         }
+
+           $('ul').append(html);
+
+          
+});
+   
+    
+
+});
+</script>

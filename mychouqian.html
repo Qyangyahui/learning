@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>祭祀页</title>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/mychouqian.css">
+</head>
+<body>
+  <main>
+    <img id="mybg" src="img/qiantong.png" alt="签筒">
+    <img id="mysn" src="img/danqian.png" alt="单签">
+    <button id="mychou" style="top:80%;border:none;">抽 签</button>
+  </main>
+</body>
+</html>
+<script src="librarys/JQuery.js"></script>
+<script>
+  $(document).ready(function(){
+   $('#mychou').click(function(){
+       $("#mybg").addClass("test");
+       $("#mysn").css("display","block");
+   })
+
+
+});
+</script>

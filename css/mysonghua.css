@@ -1,0 +1,124 @@
+* {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+    
+    body {
+      height: 100%;
+      background-image: url("../img/xianhua.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      overflow: hidden;
+    }
+    
+    main {
+      position: relative;
+      height: 100%;
+    }
+    
+    .snow {
+      position: absolute;
+      top: 0;
+      color: #fff;
+      background-image: url("../img/huaduo1.png");
+      background-size: 100% 100%;
+      height: 60px;
+      width: 60px;
+    }
+    footer{
+     width:100%;
+     height:10%;
+     position:absolute;
+     bottom:0;
+     border-top:solid 1px #82270a;
+     font-size:0;
+     padding-top:5%;
+    }
+    #myfree{
+    width:50%;
+    display:inline-block;
+    height:60%;
+    font-size:20px;
+    text-align:center;
+    font-weight:bold;
+    color: #82270a;
+    border-right:1px solid #82270a;
+    }
+    #mycharge{
+    width:50%;
+    display:inline-block;
+    height:60%;
+    font-size:20px;
+    text-align:center;
+    font-weight:bold;
+    color: #82270a
+    }
+    /*������*/
+    #boxbg{
+     height:100%;
+     background-color:rgba(0,0,0,0.7);
+     width:100%;
+     position:absolute;
+     top:0;left:0;
+     z-index:99;
+     display:none;
+    }
+     #boxcenter{
+     height:250px;
+     width:60%;
+     position:relative;
+     margin:50% auto;
+    }
+     #boxcenter_t{
+     background-color:#ffffff;
+     height:80%;
+     text-align:center;
+     padding:20px;
+     border-top-left-radius:5px;
+     border-top-right-radius:5px;
+    }
+    #myxy{
+    border-bottom-left-radius:5px; 
+    border-bottom-right-radius:5px;
+    width:100%;height:20%;
+    background-color:#ef8609;
+    color:#ffffff;
+    font-size:18px;
+    border:none;
+    }
+    #myclose>img{
+    height:20px;
+    width:20px;
+    position:absolute;
+    top:-10px;right:-10px;
+    }
+    /*�г��ͻ�*/
+    section{
+    height:30%;
+    width:50%;
+    position:absolute;
+    top:60%;right:0;
+    border-right:1px solid #82270a; 
+    border-left:1px solid #82270a;
+    display:none;
+    }
+    section ul{
+    height:100%;
+    }
+    section>ul>li{
+    height:33.3%;
+    list-style-type:none;
+    font-size:20px;
+    text-align:center;
+    font-weight:bold;
+    color: #82270a; 
+    border-top:1px solid #82270a;
+    padding-top:10%;
+    }
