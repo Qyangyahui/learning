@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>上香</title>
+    <title>充值消费</title>
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <style>
         * {
@@ -63,49 +63,63 @@
 </html>
 <script src="librarys/JQuery.js"></script>
 <script>
-  $(document).ready(function(){
-    
-    // $.ajax({
-    //     url:'/http://182.92.70.85/hfshopapi/Public/Found/',
-    //     type:'POST',
-    //     async:true,
-    //     dataType:'json',
-    //     success:function(msg){
-    //         console.log(msg);
-    //         alert('hahha')
+    $(document).ready(function () {
 
-    //     },
-    //     error:function(){
-    //         alert('出错了');
-    //          var html = '';
-    // for(var i=0;i<10;i++){
-    //     html += '<li>' + '<span class="name">张大大</span>' + '<span class="amount">+10</span>' + '<br/>'+'<p class="time">2017-06-07 16:08</p>';
-    // }
+        // $.ajax({
+        //     url:'/http://182.92.70.85/hfshopapi/Public/Found/',
+        //     type:'POST',
+        //     async:true,
+        //     dataType:'json',
+        //     success:function(msg){
+        //         console.log(msg);
+        //         alert('hahha')
 
-    // $('ul').append(html);
-    //     }
-    // })
+        //     },
+        //     error:function(){
+        //         alert('出错了');
+        //          var html = '';
+        // for(var i=0;i<10;i++){
+        //     html += '<li>' + '<span class="name">张大大</span>' + '<span class="amount">+10</span>' + '<br/>'+'<p class="time">2017-06-07 16:08</p>';
+        // }
 
-       $.getJSON("http://182.92.70.85/hfshopapi/Public/Found/?service=Shopt.getValueList&&shopid=1", function(data) {
-           
-          console.log(data);
-          console.log(data.data.info[0].truename);
-          alert('hahh');
-          //时间转化
-          var unixTimestamp = new Date(data.data.info[0].value*1000 ) ;
-          commonTime = unixTimestamp.toLocaleString();
-          alert(commonTime);
-          var html = '';
-          for(var i=0;i<10;i++){
-          html += '<li>' + "<span class='name'>" + data.data.info[0].truename +"</span>" + '<span class="amount">'+ data.data.info[0].value +'</span>' + '<br/>'+'<p class="time">'+ commonTime +'</p>';
-         }
+        // $('ul').append(html);
+        //     }
+        // })
 
-           $('ul').append(html);
+        $.getJSON("http://182.92.70.85/hfshopapi/Public/Found/?service=Shopt.getValueList&&shopid=1", function (data) {
 
-          
-});
-   
-    
+            console.log(data);
+            console.log(data.data.info[0].truename);
+            console.log(data.data.info[0].create_time);
+            //时间转化
 
-});
+            var mytime = data.data.info[0].create_time;
+            console.log(mytime);
+
+            var date = new Date(mytime * 1000);
+            Y = date.getFullYear() + '-';
+            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) +'-';
+            D = date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate();
+            h = '&nbsp;' + date.getHours() +'&nbsp;'+ ':'+'&nbsp;';
+            m = date.getMinutes();
+            // s = date.getSeconds();
+            var timestr = Y + M + D + "&nbsp;&nbsp" + h + m;
+            // console.log(timestr);
+
+
+
+            var html = '';
+            for (var i = 0; i < 10; i++) {
+                html += '<li>' + "<span class='name'>" + data.data.info[0].truename + "</span>" + '<span class="amount">' + data.data.info[0].value + '</span>' + '<br/>' + '<p class="time">' + timestr + '</p>';
+            }
+
+            $('ul').append(html);
+
+
+        });
+
+
+
+    });
+
 </script>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.0.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/myshangxiang.css" />
 </head>
+
 <body style="position:relative;">
   <!--香炉、香、烟-->
   <main>
@@ -40,43 +42,43 @@
     </ul>
   </div>
 </body>
+
 </html>
 <script src="librarys/JQuery.js"></script>
 <script>
-  $(document).ready(function(){
-   $("#myxl").animate({top:'30%'},1000);
-   $("#myyan").fadeIn(2000);
-   $("#myhelp").click(function(){
-      $("#boxbg").css("display","block");
-   });
-   $("#myxy").click(function(){
-     location.href=""
-   });
-    $("#myclose").click(function(){
-      $("#boxbg").css("display","none");
-   });
+  $(document).ready(function () {
+    $("#myxl").animate({ top: '30%' }, 1000);
+    $("#myyan").fadeIn(2000);
+    $("#myhelp").click(function () {
+      $("#boxbg").css("display", "block");
+    });
+    $("#myxy").click(function () {
+      location.href = ""
+    });
+
+    var html = '';
+    for (var i = 0; i < 10; i++) {
+      html += '<li>' + '<img src="img/bg2.png" alt="头像">' + '<span id="mynicheng">我的昵称</span>' + ' <span id="mytime">这里是时间</span>';
+    }
+
+    $('#list').append(html);
+
 
     $.ajax({
-            type: "GET",
-            cache: false,
-            url: "http://test.huaifuwang.com/snsjs/index.php?s=/home/snsapi/isPerform&&type=1",
-            dataType: "jsonp",
-            jsonp: "callback",
-            jsonpCallback: "success_jsonpCallback",
-            success: function(json){
-                 console.log(json);}
-        });
+      type: "GET",
+      cache: false,
+      url: "http://test.huaifuwang.com/snsjs/index.php?s=/home/snsapi/isPerform&&type=1",
+      dataType: "jsonp",
+      jsonp: "callback",
+      jsonpCallback: "success_jsonpCallback",
+      success: function (json) {
+        console.log(json);
+        if (!json) {
+          $("#myhelp").css('display', 'block');
+        };
+      }
 
-  //       function OnGetMemberSuccessByjsonp() {
-  //   //处理data
-  //   alert("hahha");
-  // }
-
-    // $.getJSON("http://test.huaifuwang.com/snsjs/index.php?s=/home/snsapi/isPerform/type/1",function(data){
-    //         console.log(data);
-    //         alert('hahah');
-    //  });
-
-});
+    });
+  });
 
 </script>
