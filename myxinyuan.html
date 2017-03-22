@@ -19,5 +19,42 @@
 </html>
 <script src="librarys/JQuery.js"></script>
 <script>
+$(document).ready(function () {
+    $("#mychou").click(function () {
+      $.ajax({
+        type: "POST",
+        cache: false,
+        url: "http://test.huaifuwang.com/snsjs/index.php?s=/home/sns/qiuQian",
+        dataType: "json",
+        success: function (json) {
+          console.log(json);
+          if (json.code == 1) {
+              alert('test1');
+              $("#mybg").addClass("test");
+              $("#mysn").css("display", "block");
+          };
+          if (json.code == 0) {
+            alert('test0');
+          };
+          if (json.code == -1) {
+              $("#mybg").addClass("test");
+              $("#mysn").css("display", "block");
+              setTimeout(function(){
+                $("#boxbg").css("display", "block");
+              },1200)
+              
+            // alert('test-1');
 
+          };
+
+        }
+
+      });
+
+    });
+
+
+
+
+  });
 </script>

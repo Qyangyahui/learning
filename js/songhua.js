@@ -2,7 +2,7 @@
 
   var d="<div class='snow' ><div>"
 
-			setInterval(function(){
+		var myset = setInterval(function(){
 
 				var f=$(document).width();
 
@@ -34,6 +34,9 @@
 
 				},k,"linear",function(){$(this).remove()})
 
-			},200)
+			},200);
+		setTimeout(function() {
+			clearInterval(myset);
+		}, 5000);
 
       };

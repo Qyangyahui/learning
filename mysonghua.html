@@ -24,39 +24,8 @@
         </ul>
       </section>
   </main>
-  <!--弹出框-->
-  <div id="boxbg">    
-    <div id="boxcenter">
-      <div id="boxcenter_t">
-        <div><img src="img/chenggong.png" alt="送花成功" style="height:55px;width:55px;"></div>
-        <p style="color:#ef8609;font-size:18px;">送花成功</p>
-        <p>感谢你的送花，健康平安每一天</p>
-      </div>
-      <button id="myxy">确定</button>
-      <!--<div id="myclose"><img src="img/关闭.png" alt="关闭"></div>-->
-    </div>
-  </div>
 </body>
 </html>
 <script src="librarys/JQuery.js"></script>
 <script src="js/songhua.js"></script>
-<script>  
- $(document).ready(function(){
-   $("#myfree").click(function(){
-      piaoluo();
-      setTimeout(function(){
-        $("#boxbg").css("display","block");
-      },3000)
-   });
-    $("#myxy").click(function(){
-      location.href= "mymenu.html"
-   });
-    $("#myclose").click(function(){
-      $("#boxbg").css("display","none");
-   });
-    $("#mycharge").click(function(){
-      $("section").css("display","block");
-   })
-
-});
-</script>
+<script src="js/freehua.js"></script>
