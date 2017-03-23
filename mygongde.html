@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -12,7 +13,11 @@
 
 <body>
     <main>
-        <div class="left"> </div>
+        <div class="left"> 
+            <img id="userhead" src="img/bg2.png" alt="头像">
+            <p id="username" style="font-weight:bold;"></p><br/>
+            <p id="usergongde" style="color:#a5a5a5;"></p>
+        </div>
         <div style="myfloat"></div>
         <div class="right">
             <button>兑 换 功 德</button>
@@ -23,11 +28,12 @@
         <div id="mynav">功德榜</div>
         <div>
             <ul>
-                <li>
+                <!--<li>
                     <div id="myname"></div>
                     <div id="gongde"></div>
                     <div style="clear:both;"></div>
-                </li>
+                </li>-->
+                 
             </ul>
         </div>
     </footer>
@@ -35,16 +41,40 @@
 
 </html>
 <script src="librarys/JQuery.js"></script>
+<script></script>
 <script>
-  $(document).ready(function(){
-    var html = '';
-    html = '<img src="img/bg2.png" alt="头像">' + ' <p style="font-weight:bold;">十里桃花</p><br/>' + '<p style="color:#a5a5a5;">功德总数:40</p>';
-    $(".left").append(html);
-    var head = '';
-    head = ' <p  class="mynicheng">十里桃花呢</p>' + '  <p  class="mytime">2017-03-10 10:23</p>';
-    $("#myname").append(head);
-    var gongde = '';
-    gongde = '<p  class="mynicheng">送花</p>' + '<p  class="mytime" id="myjifen">+10</p>';
-    $("#gongde").append(gongde);
-});
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "http://test.huaifuwang.com/snsjs/index.php?s=/home/sns/getMygongde",
+            dataType: "json",
+            success: function (json) {
+                console.log(json);
+                console.log(json[1].length);
+                console.log(json[0].imgurl);
+                console.log('test');
+                console.log(json[0].username);
+                $('#userhead').attr('src',json[0].imgurl);
+                $('#username').html(json[0].username);
+                $('#usergongde').html('功德总数：' + json[2]);
+                var head = '';
+                var gongde = '';
+                var myli = '';
+                for(var i = 0;i<json[1].length;i++){                  
+                    // myli = '<div id=myname> <div id="myname"></div>' + '<div id="gongde"></div>' + ' <div style="clear:both;"></div>';
+                    // $('ul').append(myli);
+                    // head = ' <p  class="mynicheng">'+ json[0].username  +'</p>' + '  <p  class="mytime">'+ json[1][i].create_time +'</p>';
+                    // $("#myname").append(head);
+                    // gongde = '<p  class="mynicheng">' + json[1][i].type  + '</p>' + '<p  class="mytime" id="myjifen">' + json[1][i].type + '</p>';
+                    // $("#gongde").append(gongde);
+                     myli =  '<div id=myname>' + '<div id=myname> <div id="myname"></div>' + '<div id="gongde"></div>' + ' <div style="clear:both;"></div>' + '<div id="myname"></div>';
+                     myli =  myli + '<div id="gongde">'+ '<p  class="mynicheng">'+ json[0].username  +'</p>' + '  <p  class="mytime">'+ json[1][i].create_time +'</p>' +'</div>';
+                     myli = myli +  '<div style="clear:both;"></div>';
+                     $('ul').append(myli);
+                }
+            }
+        });
+    })
+
 </script>
