@@ -63,25 +63,26 @@
                background-color:#ffffff;
                margin-top:3%;
                font-size:18px;
+               font-weight:bold;
+               font-family: 微软雅黑;
             }
-            li{
+           ul>li{
                background-color:#ffffff;
                border-top:solid 1px #f3f3f3;
                height:80px;
                list-style-type:none;
             }
-            #myname{
+            .myname{
                float:left;
                padding:10px 20px;
             }
-            #gongde{
+            .gongde{
               float:right;
               padding:10px 20px;
             }
 
             .mynicheng{
               font-size:16px;
-              font-weight:bold;
               padding:5px 0;
               margin:0;  
             }
@@ -91,7 +92,9 @@
              color:#a5a5a5;
              margin:0
             }
-            #myjifen{
+            .myjifen{
+            font-size:20px;
             color:#ff5500;
-            font-weight:bold;
+            line-height: 50px;
             }
+           

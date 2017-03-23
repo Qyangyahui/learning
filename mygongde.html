@@ -13,8 +13,8 @@
 
 <body>
     <main>
-        <div class="left"> 
-            <img id="userhead" src="img/bg2.png" alt="头像">
+        <div class="left">
+            <img id="userhead" src="/" alt="头像">
             <p id="username" style="font-weight:bold;"></p><br/>
             <p id="usergongde" style="color:#a5a5a5;"></p>
         </div>
@@ -27,54 +27,11 @@
     <footer>
         <div id="mynav">功德榜</div>
         <div>
-            <ul>
-                <!--<li>
-                    <div id="myname"></div>
-                    <div id="gongde"></div>
-                    <div style="clear:both;"></div>
-                </li>-->
-                 
-            </ul>
+            <ul></ul>
         </div>
     </footer>
 </body>
 
 </html>
 <script src="librarys/JQuery.js"></script>
-<script></script>
-<script>
-    $(document).ready(function () {
-        $.ajax({
-            type: "GET",
-            cache: false,
-            url: "http://test.huaifuwang.com/snsjs/index.php?s=/home/sns/getMygongde",
-            dataType: "json",
-            success: function (json) {
-                console.log(json);
-                console.log(json[1].length);
-                console.log(json[0].imgurl);
-                console.log('test');
-                console.log(json[0].username);
-                $('#userhead').attr('src',json[0].imgurl);
-                $('#username').html(json[0].username);
-                $('#usergongde').html('功德总数：' + json[2]);
-                var head = '';
-                var gongde = '';
-                var myli = '';
-                for(var i = 0;i<json[1].length;i++){                  
-                    // myli = '<div id=myname> <div id="myname"></div>' + '<div id="gongde"></div>' + ' <div style="clear:both;"></div>';
-                    // $('ul').append(myli);
-                    // head = ' <p  class="mynicheng">'+ json[0].username  +'</p>' + '  <p  class="mytime">'+ json[1][i].create_time +'</p>';
-                    // $("#myname").append(head);
-                    // gongde = '<p  class="mynicheng">' + json[1][i].type  + '</p>' + '<p  class="mytime" id="myjifen">' + json[1][i].type + '</p>';
-                    // $("#gongde").append(gongde);
-                     myli =  '<div id=myname>' + '<div id=myname> <div id="myname"></div>' + '<div id="gongde"></div>' + ' <div style="clear:both;"></div>' + '<div id="myname"></div>';
-                     myli =  myli + '<div id="gongde">'+ '<p  class="mynicheng">'+ json[0].username  +'</p>' + '  <p  class="mytime">'+ json[1][i].create_time +'</p>' +'</div>';
-                     myli = myli +  '<div style="clear:both;"></div>';
-                     $('ul').append(myli);
-                }
-            }
-        });
-    })
-
-</script>
+<script src="js/gongde.js"></script>
