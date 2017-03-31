@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>计次消费</title>
+    <style>
+     *{
+         box-sizing: border-box;
+         margin:0;
+         padding:0;
+     }
+     html,body{
+         width:100%;
+         background-color: #f3f3f3;
+     }
+     nav{
+         width:100%;
+         height:40px;
+         /*background-color: #f3f3f3;*/
+         text-align: center;
+     }
+      nav>a{
+         text-decoration: none;
+         color:black;
+     }
+     nav>a:nth-child(1){
+         color:#4c93fd;
+         border-bottom: solid 2px #4c93fd;
+         line-height: 40px;
+         display: inline-block;
+         height:100%;
+     }
+     main{
+         background-color: #f3f3f3;
+         width:100%;
+         margin:0 0 50px 0;
+     }
+     main>div{
+         width:100%;
+         background-color: #ffffff;
+         padding:0 10px;
+         margin:0 0 15px 0;
+     }
+     .consumeTime{
+         border-bottom:solid 1px #f3f3f3;
+         height:40px;
+         color:gray;
+         line-height: 40px;
+     }
+    .consumeTime>img{
+         height:20px;
+         width:20px;
+         margin-top: 10px;
+     }
+    .consumeTime>span{
+        padding:0 0 0 5px;
+    }
+     .consume{
+         width:100%;
+     }
+     .consume li{
+         list-style-type: none;
+         height: 30px;
+         line-height: 30px;
+         padding: 0 30px;
+     }
+     .consume>li:nth-child(1){
+         color:green;
+     }
+     .consume>li:nth-child(2){
+         color:#c32929;
+     }
+     footer{
+         text-align: center;
+     }
+    </style>
+</head>
+
+<body>
+   <nav>        
+       <a href="计次消费.html">计次消费</a>&#x3000;&#x3000;
+       <a href="金额消费.html">金额消费</a>
+   </nav>
+   <main>
+       <div>
+           <section class="consumeTime">
+               <img src="img/clock.png" alt="时间">
+               <span>2017-09-19  12:00:00</span>
+           </section>
+           <section class="consume">
+              <li>消费：1次</li>
+              <li>剩余：9次</li>
+           </section>
+       </div>
+       
+       <div>
+           <section class="consumeTime">
+               <img src="img/clock.png" alt="时间">
+               <span>2017-09-19  12:00:00</span>
+           </section>
+           <section class="consume">
+              <li>消费：1次</li>
+              <li>剩余：9次</li>
+           </section>
+       </div>
+      
+   </main>
+   <footer>
+      ----------  已经没有更多了  ----------
+   </footer>
+
+</body>
+
+</html>
+<script src="librarys/JQuery.js"></script>
+<script type="text/javascript" src="js/touche.js"></script>
+<script type="text/javascript" src="js/p-pull-refresh.js"></script>
+
+<script>
+ 
+
+</script>
+

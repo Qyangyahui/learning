@@ -53,13 +53,13 @@
       border-radius: 5px;
       background: linear-gradient(to bottom, #e9d0a8, #e1ba8e);
       border:none;
-      display: none;
+      /*display: none;*/
     }
     
     /*������*/
     #boxbg{
      height:100%;
-     background-color:rgba(0,0,0,0.7);
+     /*background-color:rgba(0,0,0,0.7);*/
      width:100%;
      position:absolute;
      top:0;left:0;

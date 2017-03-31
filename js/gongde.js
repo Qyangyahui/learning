@@ -58,11 +58,18 @@
                         gong.innerHTML = '-'+ json[1][i].integral;
                     }
                     if (json[1][i].type == 5) {
-                        var pro = document.getElementsByClassName('myjifen')[i];
+                        var pro = document.getElementsByClassName('mynicheng')[i];
                         pro.style.color = 'green';
                         pro.innerHTML = '心愿';
                         var gong = document.getElementsByClassName('myjifen')[i];
                         gong.innerHTML = '-' + json[1][i].integral;
+                    }
+                     if (json[1][i].type == 6) {
+                        var pro = document.getElementsByClassName('mynicheng')[i];
+                        // pro.style.color = 'green';
+                        pro.innerHTML = '助力';
+                        var gong = document.getElementsByClassName('myjifen')[i];
+                        gong.innerHTML = '+' + json[1][i].integral;
                     }
 
                 }

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>分页测试</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/pagination.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        
+        ul {
+            width: 100%;
+            height: 100%;
+        }
+        
+        ul li {
+            list-style-type: none;
+            height: 110px;
+            border-bottom: solid 2px #e4e4e6;
+            font-size: 16px;
+            padding: 7% 5%;
+            width: 100%;
+            background-color: #ffffff;
+        }
+        
+        .name {
+            float: left;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .amount {
+            float: right;
+            color: orange;
+            font-size: 18px;
+            padding-top: 3%;
+        }
+        
+        .time {
+            padding-top: 5%;
+            color: #959595;
+        }
+        /*html{ font-size: 10px; }
+@media screen and (min-width:321px) and (max-width:375px){html{font-size:11px}}
+@media screen and (min-width:376px) and (max-width:414px){html{font-size:12px}}
+@media screen and (min-width:415px) and (max-width:639px){html{font-size:15px}}
+@media screen and (min-width:640px) and (max-width:719px){html{font-size:20px}}
+@media screen and (min-width:720px) and (max-width:749px){html{font-size:22.5px}}
+@media screen and (min-width:750px) and (max-width:799px){html{font-size:23.5px}}
+@media screen and (min-width:800px){html{font-size:25px}}*/
+        .container{ overflow: hidden; min-height: 100%;  }
+        
+        .loading-warp {
+            display: table;
+            width: 100%;
+            margin-top: -5.8rem;
+        }
+        
+        .loading-warp .box {
+            width: 100%;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .loading-warp .box img {
+            display: block;
+            width: 2rem;
+            height: 2rem;
+            margin: 0 auto;
+        }
+        
+        .loading-warp .box .text {
+            display: block;
+            text-align: center;
+            font-size: 0.5rem;
+            line-height: 0.5rem;
+            opacity: 0.7;
+            margin-top: 1.4rem;
+        }
+        
+        .nav {
+            background: #2285DE;
+            padding: 0.6rem;
+            line-height: 1.4rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #FFF;
+            padding-top: 0.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        
+        .list {}
+        
+        .list li {
+            color: #63A0D7;
+            padding: 0.8rem 1rem;
+            background: #FFF;
+            list-style: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .linkAdv {
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        .linkAdv a {
+            display: inline-block;
+            margin: 0.6rem 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="loading-warp">
+            <div class="box">
+                <div>
+                    <img src="img/loading.gif" />
+                    <span class="text">下拉开始刷新</span>
+                </div>
+            </div>
+        </div>
+        <ul></ul>
+    </div>
+
+</body>
+
+</html>
+<script src="librarys/JQuery.js"></script>
+<script type="text/javascript" src="js/touche.js"></script>
+<script type="text/javascript" src="js/p-pull-refresh.js"></script>
+<script src="js/pagination.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $.getJSON("http://182.92.70.85/hfshopapi/Public/Found/?service=Shopt.getValueList&&shopid=1", function (data) {
+
+            console.log(data);
+            console.log(data.data.info[0].truename);
+            console.log(data.data.info[0].create_time);
+            //时间转化
+
+            var mytime = data.data.info[0].create_time;
+            console.log(mytime);
+
+            var date = new Date(mytime * 1000);
+            Y = date.getFullYear() + '-';
+            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+            D = date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate();
+            h = '&nbsp;' + date.getHours() + '&nbsp;' + ':' + '&nbsp;';
+            m = date.getMinutes();
+            // s = date.getSeconds();
+            var timestr = Y + M + D + "&nbsp;&nbsp" + h + m;
+            // console.log(timestr);
+
+            var html = '';
+            for (var i = 0; i < 10; i++) {
+                html += '<li>' + "<span class='name'>" + data.data.info[0].truename + "</span>" + '<span class="amount">' + data.data.info[0].value + '</span>' + '<br/>' + '<p class="time">' + timestr + '</p>';
+            }
+            $('ul').append(html);
+        });
+    });
+
+</script>
+
+<script type="text/javascript">
+    var $statu = $('.loading-warp .text');
+
+    var pullRefresh = $('.container').pPullRefresh({
+        $el: $('.container'),
+        $loadingEl: $('.loading-warp'),
+        sendData: null,
+        url: 'http://182.92.70.85/hfshopapi/Public/Found/?service=Shopt.getValueList&&shopid=1',
+        callbacks: {
+            pullStart: function () {
+                $statu.text('松开开始刷新');
+            },
+            start: function () {
+                $statu.text('数据刷新中···');
+            },
+            success: function (response) {
+                $statu.text('数据刷新成功！');
+            },
+            end: function () {
+                $statu.text('下拉刷新结束');
+            },
+            error: function () {
+                $statu.text('找不到请求地址,数据刷新失败');
+            }
+        }
+    });
+
+	// pullRefresh.setDestroy(true);
+
+</script>
